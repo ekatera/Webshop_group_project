@@ -1,0 +1,138 @@
+{
+  "categories": [
+    { "id": 1, "name": "Food" },
+    { "id": 2, "name": "Toys" },
+    { "id": 3, "name": "Accessories" },
+    { "id": 4, "name": "Bedding" },
+    { "id": 5, "name": "Grooming" },
+    { "id": 6, "name": "Health" }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Premium Kibble 10kg",
+      "price": 299,
+      "category": ["Food", "Health"],
+      "onRealisation": true,
+      "picture": "/images/kibble.jpg",
+      "saldo": 45
+    },
+    {
+      "id": 2,
+      "title": "Scratching Post with Bed",
+      "price": 449,
+      "category": ["Accessories", "Bedding"],
+      "onRealisation": false,
+      "picture": "/images/scratch-post.jpg",
+      "saldo": 12
+    },
+    {
+      "id": 3,
+      "title": "Squeaky Rubber Bone",
+      "price": 79,
+      "category": ["Toys"],
+      "onRealisation": true,
+      "picture": "/images/rubber-bone.jpg",
+      "saldo": 87
+    },
+    {
+      "id": 4,
+      "title": "Orthopedic Pet Bed",
+      "price": 399,
+      "category": ["Bedding", "Health"],
+      "onRealisation": false,
+      "picture": "/images/pet-bed.jpg",
+      "saldo": 23
+    },
+    {
+      "id": 5,
+      "title": "Grooming Brush Set",
+      "price": 129,
+      "category": ["Grooming", "Accessories"],
+      "onRealisation": false,
+      "picture": "/images/brush.jpg",
+      "saldo": 34
+    },
+    {
+      "id": 6,
+      "title": "Feather Wand Toy",
+      "price": 59,
+      "category": ["Toys"],
+      "onRealisation": true,
+      "picture": "/images/feather-toy.jpg",
+      "saldo": 102
+    },
+    {
+      "id": 7,
+      "title": "Leather Leash with Collar",
+      "price": 249,
+      "category": ["Accessories"],
+      "onRealisation": false,
+      "picture": "/images/leash.jpg",
+      "saldo": 19
+    },
+    {
+      "id": 8,
+      "title": "Grain-Free Wet Food 12-pack",
+      "price": 179,
+      "category": ["Food", "Health"],
+      "onRealisation": false,
+      "picture": "/images/wet-food.jpg",
+      "saldo": 56
+    },
+    {
+      "id": 9,
+      "title": "Flea & Tick Shampoo",
+      "price": 149,
+      "category": ["Grooming", "Health"],
+      "onRealisation": true,
+      "picture": "/images/shampoo.jpg",
+      "saldo": 41
+    },
+    {
+      "id": 10,
+      "title": "Ceramic Water Bowl",
+      "price": 89,
+      "category": ["Accessories"],
+      "onRealisation": false,
+      "picture": "/images/water-bowl.jpg",
+      "saldo": 67
+    },
+    {
+      "id": 11,
+      "title": "Dental Chew Rope",
+      "price": 69,
+      "category": ["Toys", "Health"],
+      "onRealisation": true,
+      "picture": "/images/chew-rope.jpg",
+      "saldo": 78
+    },
+    {
+      "id": 12,
+      "title": "Vitamin Supplements",
+      "price": 199,
+      "category": ["Health", "Food"],
+      "onRealisation": false,
+      "picture": "/images/vitamins.jpg",
+      "saldo": 30
+    },
+    {
+      "id": 13,
+      "title": "Interactive Puzzle Feeder",
+      "price": 219,
+      "category": ["Toys", "Food"],
+      "onRealisation": true,
+      "picture": "/images/puzzle-feeder.jpg",
+      "saldo": 25
+    },
+    {
+      "id": 14,
+      "title": "Cooling Mat",
+      "price": 179,
+      "category": ["Bedding", "Accessories"],
+      "onRealisation": false,
+      "picture": "/images/cooling-mat.jpg",
+      "saldo": 18
+    }
+  ]
+}

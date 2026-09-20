@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Products from './components/Products';
 import Details from './components/Details';
+import Order from './components/Order';
 const App = () => {
     return (
         <div>
@@ -11,6 +12,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Products />} />
                     <Route path="products/detail/:id" element={<Details />} />
+                    <Route path="order" element={<Order />} />
                 </Routes>
                 <Footer />
             </Router>

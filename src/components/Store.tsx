@@ -44,6 +44,10 @@ export const useUserStore = create ( (set)  => (
             return { order: newOrder };
         }), // end setPaymentMethod
 
+        updateOrderPrice: ( price:number ) => set (( state : any ) => 
+            ({
+                order: {...state.order, price }
+             } )),
         updateQuantity: (itemId : number, quantity: number) => set(( state : any) =>
            {
            // if ( quantity > 0 ) {

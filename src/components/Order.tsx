@@ -2,7 +2,7 @@ import { useUserStore } from './Store';
 import { useQuery } from '@tanstack/react-query';
 
 const Order = () => {
-    const {data: products, isLoading, error} = useQuery( {
+    const {data: products, error} = useQuery( {
         queryKey: ['products'],
         queryFn: async() => {
             const response = await fetch('http://localhost:3000/products');
@@ -18,7 +18,7 @@ const Order = () => {
     const order = useUserStore(( state : any ) => state.order);
     const setPayment = useUserStore(( state: any ) => state.setPaymentMethod);
     const updateQuantity = useUserStore(( state : any ) => state.updateQuantity);
-
+    const updatePrice = useUserStore( ( state : any ) => state.updateOrderPrice );
     const totalPrice = order?.orderItems.reduce(( sum :number, item:any ) => sum + ( products?.find( (product : any ) => Number(product.id) === Number(item.itemId) )?.price * item.quantity ), 0);
 
     return (
@@ -62,6 +62,7 @@ const Order = () => {
                         <option value="invoice" >Invoice</option>
                     </select>
                 </label>
+        <button onClick={ () =>  { updatePrice(totalPrice);  }}>Update Price</button>
         </div>
     );
 };

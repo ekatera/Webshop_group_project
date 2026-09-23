@@ -50,21 +50,24 @@ export const useUserStore = create ( (set)  => (
              } )),
         updateQuantity: (itemId : number, quantity: number) => set(( state : any) =>
            {
-           // if ( quantity > 0 ) {
+            if ( quantity > 0 ) {
                 const newOrderItems = state.order.orderItems.map(  ( item: any ) =>
                   item.itemId === itemId ? {...item, quantity } : item
                 )
                 const newOrder = {...state.order, orderItems: newOrderItems };
                 console.log(state.order);
                 return { order: newOrder };
-            // } else {
-            //     const newOrderItems = state.order.orderItems.filter( ( item : any )  =>
-            //      item.itemId !== itemId
-            //     );
-            //     const newOrder = {...state.order, orderItems: newOrderItems };
-            //     console.log(state.order);
-            //     return { order: newOrder };
-            // }
+            } else {
+                const newOrderItems = state.order.orderItems.filter( ( item : any )  =>
+                 item.itemId !== itemId
+                );
+                if ( newOrderItems.length === 0 ) {
+                    return { order: null };
+                } 
+                const newOrder = {...state.order, orderItems: newOrderItems };
+                console.log(state.order);
+                return { order: newOrder };
+            }
            }  
         )
     }

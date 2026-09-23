@@ -21,9 +21,11 @@ const Order = () => {
     const updatePrice = useUserStore( ( state : any ) => state.updateOrderPrice );
     const totalPrice = order?.orderItems.reduce(( sum :number, item:any ) => sum + ( products?.find( (product : any ) => Number(product.id) === Number(item.itemId) )?.price * item.quantity ), 0);
 
-    return (
-        <div className="order-container">
-            <h2>Order Details:</h2>
+        return (
+            order ? (        
+            <div className="order-container">
+           
+              <h2>Order Details:</h2>
             
                 <h1>Order ID: {order?.orderId}</h1>
                 <p>Order date: {order?.date.toLocaleDateString()}</p>
@@ -62,9 +64,14 @@ const Order = () => {
                         <option value="invoice" >Invoice</option>
                     </select>
                 </label>
-        <button onClick={ () =>  { updatePrice(totalPrice);  }}>Update Price</button>
-        </div>
-    );
+                <button onClick={ () =>  { updatePrice(totalPrice);  }}>Confirm order</button>
+           
+            
+        </div>) : 
+        (<div>No order found</div>)
+        );
+
+    
 };
 
 export default Order;

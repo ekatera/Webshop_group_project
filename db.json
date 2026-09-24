@@ -22,7 +22,7 @@
       "title": "Scratching Post",
       "price": 449,
       "category": ["Accessories"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/scratch-post.jpg",
       "saldo": 12
     },
@@ -40,7 +40,7 @@
       "title": "Orthopedic Cat Bed",
       "price": 399,
       "category": ["Bedding", "Health"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/cat-bed.jpg",
       "saldo": 23
     },
@@ -49,7 +49,7 @@
       "title": "Grooming Brush",
       "price": 129,
       "category": ["Grooming", "Accessories"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/brush.jpg",
       "saldo": 34
     },
@@ -67,7 +67,7 @@
       "title": "Leather Leash with Collar",
       "price": 249,
       "category": ["Accessories"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/leash.jpg",
       "saldo": 19
     },
@@ -76,7 +76,7 @@
       "title": "Grain-Free Wet Food 12-pack",
       "price": 179,
       "category": ["Food", "Health"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/wet-food.jpg",
       "saldo": 56
     },
@@ -94,7 +94,7 @@
       "title": "Ceramic Food Bowl",
       "price": 89,
       "category": ["Accessories"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/food-bowl.jpg",
       "saldo": 67
     },
@@ -112,7 +112,7 @@
       "title": "Vitamin Supplements",
       "price": 199,
       "category": ["Health", "Food"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/vitamins.jpg",
       "saldo": 30
     },
@@ -130,7 +130,7 @@
       "title": "Cooling Mat",
       "price": 179,
       "category": ["Bedding", "Accessories"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/cooling-mat.jpg",
       "saldo": 18
     },
@@ -148,7 +148,7 @@
       "title": "Interactive Water Fountain",
       "price": 219,
       "category": ["Accessories", "Health"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/cat-water-fountain.jpg",
       "saldo": 25
     },
@@ -157,7 +157,7 @@
       "title": "Orthopedic Dog Bed",
       "price": 79,
       "category": ["Bedding"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/dog-bed.jpg",
       "saldo": 87
     },
@@ -175,7 +175,7 @@
       "title": "Pet Hair Remover Roller",
       "price": 69,
       "category": ["Grooming", "Accessories"],
-      "onSale": true,
+      "onSale": false,
       "picture": "/images/hair-remover.jpg",
       "saldo": 78
     },

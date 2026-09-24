@@ -10,18 +10,18 @@
   "products": [
     {
       "id": 1,
-      "title": "Premium Kibble 10kg",
+      "title": "Premium Dog Dry Food 10kg",
       "price": 299,
       "category": ["Food", "Health"],
       "onSale": true,
-      "picture": "/images/kibble.jpg",
+      "picture": "/images/dry-food-dogs-10kg.jpg",
       "saldo": 45
     },
     {
       "id": 2,
-      "title": "Scratching Post with Bed",
+      "title": "Scratching Post",
       "price": 449,
-      "category": ["Accessories", "Bedding"],
+      "category": ["Accessories"],
       "onSale": false,
       "picture": "/images/scratch-post.jpg",
       "saldo": 12
@@ -37,16 +37,16 @@
     },
     {
       "id": 4,
-      "title": "Orthopedic Pet Bed",
+      "title": "Orthopedic Cat Bed",
       "price": 399,
       "category": ["Bedding", "Health"],
       "onSale": false,
-      "picture": "/images/pet-bed.jpg",
+      "picture": "/images/cat-bed.jpg",
       "saldo": 23
     },
     {
       "id": 5,
-      "title": "Grooming Brush Set",
+      "title": "Grooming Brush",
       "price": 129,
       "category": ["Grooming", "Accessories"],
       "onSale": false,
@@ -91,11 +91,11 @@
     },
     {
       "id": 10,
-      "title": "Ceramic Water Bowl",
+      "title": "Ceramic Food Bowl",
       "price": 89,
       "category": ["Accessories"],
       "onSale": false,
-      "picture": "/images/water-bowl.jpg",
+      "picture": "/images/food-bowl.jpg",
       "saldo": 67
     },
     {
@@ -133,6 +133,60 @@
       "onSale": false,
       "picture": "/images/cooling-mat.jpg",
       "saldo": 18
+    },
+    {
+      "id": 15,
+      "title": "Cat Toy Mouse",
+      "price": 59,
+      "category": ["Toys"],
+      "onSale": true,
+      "picture": "/images/cat-toy-mouse.jpg",
+      "saldo": 102
+    },
+    {
+      "id": 16,
+      "title": "Interactive Water Fountain",
+      "price": 219,
+      "category": ["Accessories", "Health"],
+      "onSale": false,
+      "picture": "/images/cat-water-fountain.jpg",
+      "saldo": 25
+    },
+    {
+      "id": 17,
+      "title": "Orthopedic Dog Bed",
+      "price": 79,
+      "category": ["Bedding"],
+      "onSale": false,
+      "picture": "/images/dog-bed.jpg",
+      "saldo": 87
+    },
+    {
+      "id": 18,
+      "title": "Cozy Cat Tree",
+      "price": 149,
+      "category": ["Accessories", "Bedding"],
+      "onSale": true,
+      "picture": "/images/cat-tree.jpg",
+      "saldo": 41
+    },
+    {
+      "id": 19,
+      "title": "Pet Hair Remover Roller",
+      "price": 69,
+      "category": ["Grooming", "Accessories"],
+      "onSale": false,
+      "picture": "/images/hair-remover.jpg",
+      "saldo": 78
+    },
+    {
+      "id": 20,
+      "title": "Premium Cat Dry Food 2kg",
+      "price": 89,
+      "category": ["Food"],
+      "onSale": true,
+      "picture": "/images/dry-food-cats-2kg.jpg",
+      "saldo": 67
     }
   ]
 }

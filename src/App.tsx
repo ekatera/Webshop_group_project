@@ -5,6 +5,7 @@ import Products from './components/Products';
 import Details from './components/Details';
 import Order from './components/Order';
 import Checkout from './components/Checkout';
+import Confirmation from "./components/Confirmation";
 const App = () => {
     return (
         <div>
@@ -15,6 +16,7 @@ const App = () => {
                     <Route path="products/detail/:id" element={<Details />} />
                     <Route path="order" element={<Order />} />
                     <Route path="checkout" element={<Checkout />} />
+                    <Route path="confirmation/:orderId" element={<Confirmation />} />
                 </Routes>
                 <Footer />
             </Router>

@@ -1,151 +1,217 @@
-import { useState, type SyntheticEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { useUserStore } from "./Store";
-import type { OrderObj } from "./OrderObj";
+import type { OrderObj, PaymentMethod } from "./OrderObj";
+import CustomerForm, { type CustomerData } from "./CustomerForm";
+import ShippingForm, { type ShippingData } from "./ShippingForm";
+import PaymentForm, { type PaymentData } from "./PaymentForm";
+import OrderItems from "./OrderItems";
 
 type StoreState = {
   order: OrderObj | null;
+  customerData: CustomerData | null;
+  shippingData: ShippingData | null;
+  setCustomerData: (data: CustomerData) => void;
+  setShippingData: (data: ShippingData) => void;
+  setPaymentMethod: (method: PaymentMethod) => void;
+  clearOrder: () => void;
 };
 
 type Product = {
-  id: number;
+  id: number | string;
+  title: string;
+  price: number;
   saldo: number;
 };
 
 const Checkout = () => {
+  const navigate = useNavigate();
+
   const order = useUserStore(
     (state) => (state as StoreState).order
   );
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const updateStock = async () => {
-  if (!order) return;
+  const customerData = useUserStore(
+    (state) => (state as StoreState).customerData
+  );
 
-  for (const item of order.orderItems) {
-    const response = await fetch(
-      `http://localhost:3000/products/${item.itemId}`
-    );
+  const shippingData = useUserStore(
+    (state) => (state as StoreState).shippingData
+  );
 
-    if (!response.ok) {
-      throw new Error("Could not fetch product");
-    }
+  const setCustomerData = useUserStore(
+    (state) => (state as StoreState).setCustomerData
+  );
 
-    const product: Product = await response.json();
+  const setShippingData = useUserStore(
+    (state) => (state as StoreState).setShippingData
+  );
 
-    const newSaldo = product.saldo - item.quantity;
+  const setPaymentMethod = useUserStore(
+    (state) => (state as StoreState).setPaymentMethod
+  );
 
-    if (newSaldo < 0) {
-      throw new Error("Not enough products in stock");
-    }
+  const clearOrder = useUserStore(
+    (state) => (state as StoreState).clearOrder
+  );
 
-    const updateResponse = await fetch(
-      `http://localhost:3000/products/${item.itemId}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          saldo: newSaldo,
-        }),
+  const {
+    data: products = [],
+    isLoading,
+    isError,
+  } = useQuery<Product[]>({
+    queryKey: ["products"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:3000/products");
+
+      if (!response.ok) {
+        throw new Error("Could not fetch products");
       }
-    );
 
-    if (!updateResponse.ok) {
-      throw new Error("Could not update stock");
+      return response.json();
+    },
+  });
+
+  const handleCustomerComplete = (data: CustomerData) => {
+    setCustomerData(data);
+  };
+
+  const handleShippingComplete = (data: ShippingData) => {
+    setShippingData(data);
+  };
+
+  const handlePaymentComplete = async (data: PaymentData) => {
+    if (!order || !customerData || !shippingData) return;
+
+    try {
+      setPaymentMethod(data.paymentMethod);
+
+      const orderProducts = await Promise.all(
+        order.orderItems.map(async (item) => {
+          const response = await fetch(
+            `http://localhost:3000/products/${item.itemId}`
+          );
+
+          if (!response.ok) {
+            throw new Error("Could not fetch product");
+          }
+
+          const product: Product = await response.json();
+
+          if (product.saldo < item.quantity) {
+            throw new Error("Not enough products in stock");
+          }
+
+          return {
+            product,
+            quantity: item.quantity,
+          };
+        })
+      );
+
+      const orderItems = orderProducts.map(({ product, quantity }) => ({
+        itemId: Number(product.id),
+        quantity,
+        price: product.price,
+      }));
+
+      const totalPrice = orderItems.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+
+      const orderId = Date.now();
+
+      const newOrder = {
+        orderId,
+        orderItems,
+        price: totalPrice,
+        paymentMethod: data.paymentMethod,
+        date: new Date().toISOString(),
+        customerId: order.customerId,
+        customerInfo: customerData,
+        shippingMethod: shippingData.shippingMethod,
+      };
+
+      const orderResponse = await fetch(
+        "http://localhost:3000/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newOrder),
+        }
+      );
+
+      if (!orderResponse.ok) {
+        throw new Error("Could not create order");
+      }
+
+      for (const { product, quantity } of orderProducts) {
+        const stockResponse = await fetch(
+          `http://localhost:3000/products/${product.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              saldo: product.saldo - quantity,
+            }),
+          }
+        );
+
+        if (!stockResponse.ok) {
+          throw new Error("Could not update stock");
+        }
+      }
+
+      clearOrder();
+      navigate(`/confirmation/${orderId}`);
+    } catch (error) {
+      console.error(error);
     }
+  };
+
+  if (!order) {
+    return (
+      <div className="checkout-container">
+        <h2>Checkout</h2>
+        <p>No order found</p>
+      </div>
+    );
   }
-};
-const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
-  e.preventDefault();
-
-  if (isSubmitting) return;
-
-  setIsSubmitting(true);
-
-  try {
-  await updateStock();
-} catch (error) {
-  console.error(error);
-  setIsSubmitting(false);
-}
-};
 
   return (
     <div className="checkout-container">
       <h2>Checkout</h2>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          First name
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </label>
+      <h3>Order summary</h3>
 
-        <label>
-          Last name
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </label>
+      {isLoading && <p>Loading order...</p>}
 
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
+      {isError && <p>Could not load order.</p>}
 
-        <label>
-          Address
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-        </label>
+      {!isLoading && !isError && (
+        <OrderItems
+          items={order.orderItems}
+          products={products}
+          readOnly
+        />
+      )}
 
-        <label>
-          Postal code
-          <input
-            type="text"
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
-            required
-          />
-        </label>
+      {!customerData && (
+        <CustomerForm onComplete={handleCustomerComplete} />
+      )}
 
-        <label>
-          City
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-          />
-        </label>
+      {customerData && !shippingData && (
+        <ShippingForm onComplete={handleShippingComplete} />
+      )}
 
-        <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Order confirmed" : "Confirm order"}
-        </button>
-
-      </form>
+      {customerData && shippingData && (
+        <PaymentForm onComplete={handlePaymentComplete} />
+      )}
     </div>
   );
 };

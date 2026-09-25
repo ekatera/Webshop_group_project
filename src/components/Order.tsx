@@ -39,7 +39,7 @@ const Order = () => {
 
                             <br />
                             <span>Quantity: <input type="number" value={ item.quantity } readOnly />
-                                <button onClick = { 
+                                <button onClick = {
                                     () => { 
                                         if ( item.quantity + 1 <= products?.find( (prod : any) => Number(prod.id) === Number(item.itemId) )?.saldo )
                                           updateQuantity( item.itemId, item.quantity+1 );

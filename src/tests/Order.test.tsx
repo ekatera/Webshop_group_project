@@ -11,14 +11,6 @@ afterEach(() => {
 
 vi.mock('@tanstack/react-query');
 
-// vi.mock('@tanstack/react-query', () => ({
-//   useQuery: () => ({
-//     data: [{ id: 1, title: 'Product 1', price: 10, category: 'Category 1', saldo: 5 }],
-//     isLoading: false,
-//     error: null,
-//   }),
-// }));
-
 describe("Order", () => {
   it("increase and decrease quantity", async () => {
     const user = userEvent.setup();
@@ -46,13 +38,6 @@ describe("Order", () => {
     };
 
     useUserStore.setState({ order: order });
-    // vi.mock("../components/Store", () => ({
-    //   useUserStore: () => ({
-    //     order: order,
-    //     setPaymentMethod: vi.fn(),
-    //   }),
-    // }));
-
     render(<Order />);
     expect(screen.getByText("Total price for product: 20 kr")).toBeInTheDocument();
 
@@ -101,13 +86,6 @@ describe("Order", () => {
     };
 
     useUserStore.setState({ order: order });
-    // vi.mock("../components/Store", () => ({
-    //   useUserStore: () => ({
-    //     order: order,
-    //     setPaymentMethod: vi.fn(),
-    //   }),
-    // }));
-
     render(<Order />);
     
     expect(screen.getByText("Total price for product: 20 kr")).toBeInTheDocument();
@@ -145,13 +123,6 @@ describe("Order", () => {
     };
 
     useUserStore.setState({ order: order });
-    // vi.mock("../components/Store", () => ({
-    //   useUserStore: () => ({
-    //     order: order,
-    //     setPaymentMethod: vi.fn(),
-    //   }),
-    // }));
-
     render(<Order />);
     
     await user.click(screen.getByRole("button", { name: "-" }));
@@ -187,12 +158,6 @@ describe("Order", () => {
     };
 
     useUserStore.setState({ order: order });
-    // vi.mock("../components/Store", () => ({
-    //   useUserStore: () => ({
-    //     order: order,
-    //     setPaymentMethod: vi.fn(),
-    //   }),
-    // }));
 
     render(<Order />);
     expect(screen.getByText("Total price for product: 30 kr")).toBeInTheDocument();

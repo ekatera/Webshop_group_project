@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Products from './components/Products';
 import Details from './components/Details';
 import Order from './components/Order';
+import Checkout from './components/Checkout';
 const App = () => {
     return (
         <div>
@@ -13,6 +14,7 @@ const App = () => {
                     <Route path="/" element={<Products />} />
                     <Route path="products/detail/:id" element={<Details />} />
                     <Route path="order" element={<Order />} />
+                    <Route path="checkout" element={<Checkout />} />
                 </Routes>
                 <Footer />
             </Router>

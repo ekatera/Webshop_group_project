@@ -34,14 +34,15 @@ const Order = () => {
                 <ul>
                     {order?.orderItems.map (( item: any ) => (
                         <li key={item.itemId}>
-                            <span>Item ID:  { products?.find( ( product : any ) => Number ( product.id ) === Number( item.itemId ) )?.title } </span><br />
+                            <span>Item:  { products?.find( ( product : any ) => Number ( product.id ) === Number( item.itemId ) )?.title } </span><br />
                             <span>Price:  { products?.find( ( product : any ) => Number ( product.id ) === Number( item.itemId ) )?.price } kr </span>
 
                             <br />
                             <span>Quantity: <input type="number" value={ item.quantity } readOnly />
                                 <button onClick = { 
                                     () => { 
-                                       updateQuantity( item.itemId, item.quantity+1 );
+                                        if ( item.quantity + 1 <= products?.find( (prod : any) => Number(prod.id) === Number(item.itemId) )?.saldo )
+                                          updateQuantity( item.itemId, item.quantity+1 );
                                     }}>+
                                     </button>
                                 <button onClick= {() => 

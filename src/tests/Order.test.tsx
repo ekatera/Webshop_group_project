@@ -56,7 +56,6 @@ describe("Order", () => {
 
 describe("Order", () => {
   it("order calculates right price per product and total price", async () => {
-    const user = userEvent.setup();
 
     vi.mocked(useQuery).mockReturnValue({
     data: [

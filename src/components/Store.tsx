@@ -2,11 +2,40 @@ import { create } from 'zustand';
 import type { OrderObj, OrderItems } from './OrderObj';
 import mockOrder from './mockOrder';
 
+type CustomerData = {
+    firstName: string;
+    lastName: string;
+    address: string;
+    postalCode: string;
+    city: string;
+};
+
+type ShippingData = {
+    shippingMethod: 'DHL' | 'Schenker' | 'PostNord';
+};
+
 
 export const useUserStore = create ( (set)  => (
     {
         order: mockOrder as OrderObj | null,
         OrderItems: [] as OrderItems,
+        customerData: null as CustomerData | null,
+        shippingData: null as ShippingData | null,
+
+        setCustomerData: (customerData: CustomerData) => set({
+            customerData
+        }),
+
+        setShippingData: (shippingData: ShippingData) => set({
+            shippingData
+        }),
+
+        clearOrder: () => set({
+            order: null,
+            OrderItems: [],
+            customerData: null,
+            shippingData: null
+        }),
 
         updateOrder: ( itemId : number ) => set( (state : any) => 
              

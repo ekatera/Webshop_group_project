@@ -3,16 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "test": "vitest"
-  },
+ "scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "test": "vitest",
+  "server": "json-server --watch db.json --port 3000"
+},
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
     "@tanstack/react-query": "^5.103.1",
+    "json-server": "^1.0.0-beta.15",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.88.0",

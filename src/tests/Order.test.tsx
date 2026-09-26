@@ -1,6 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, afterEach, vi } from 'vitest';
+import '@testing-library/jest-dom/vitest';
 import Order from "../components/Order";
 import type { OrderObj } from "../components/OrderObj";
 import { useUserStore } from "../components/Store";

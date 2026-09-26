@@ -5,7 +5,6 @@ import Order from "../components/Order";
 import type { OrderObj } from "../components/OrderObj";
 import { useUserStore } from "../components/Store";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 
 
 const mockUseNavigate =  vi.fn();

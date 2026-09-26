@@ -1,8 +1,10 @@
 import OrderItems from './OrderItems';
 import { useUserStore } from './Store';
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+    const navigate = useNavigate();
     const {data: products, error} = useQuery( {
         queryKey: ['products'],
         queryFn: async() => {
@@ -61,6 +63,7 @@ const Order = () => {
 
                 <button onClick={() => {
                     updatePrice(totalPrice);
+                    navigate( '/checkout' );
                 }}>
                     Confirm order
                 </button>

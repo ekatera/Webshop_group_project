@@ -166,4 +166,41 @@ describe("Order", () => {
     screen.debug();
   });
 });
+
+describe("Order", () => {
+  it("payment method can be changed in orderObj", async () => {
+    const user = userEvent.setup();
+
+    vi.mocked(useQuery).mockReturnValue({
+    data: [
+      { id: 2, title: 'Product 2', price: 30, category: 'Category 1', onSale: true, picture: 'picture_url', saldo: 1 },
+    ],
+    isLoading: false,
+    error: null,
+} as any );
+
+    const order: OrderObj = {
+        orderId: 1,
+        date: new Date(),
+        price: 0,
+        paymentMethod: 'creditCard',
+        customerId: 1,
+        orderItems: [
+            {
+                itemId: 2,
+                quantity: 1
+            }
+        ]
+    };
+
+    useUserStore.setState({ order: order });
+
+    render(<Order />);
+    expect(( useUserStore.getState() as any ).order.paymentMethod).toBe("creditCard");
+    const select = screen.getByLabelText("Payment Method:");
+    await user.selectOptions(select, "swish");
+    expect((useUserStore.getState() as any).order.paymentMethod).toBe("swish");
+    screen.debug();
+  });
+});
 });

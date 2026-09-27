@@ -14,17 +14,19 @@ const Products = () => {
         return <p>Something went wrong...</p>;
     }
 
-    return (
-        <div>
-            <h1>Products</h1>
+return (
+    <main className="products-page">
+        <h1>Products</h1>
 
+        <div className="products-grid">
             {products?.map((product: any) => (
-                <div key={product.id}>
+                <article className="product-card" key={product.id}>
                     <h2>{product.title}</h2>
-                    <p>{product.price} kr</p>
-                </div>
+                    <p className="product-card__price">{product.price} kr</p>
+                </article>
             ))}
         </div>
+    </main>
     );
 };
 

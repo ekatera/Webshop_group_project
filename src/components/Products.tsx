@@ -15,16 +15,23 @@ const Products = () => {
     }
 
     return (
-        <div>
+        <main className="products-page">
             <h1>Products</h1>
 
-            {products?.map((product: any) => (
-                <div key={product.id}>
-                    <h2>{product.title}</h2>
-                    <p>{product.price} kr</p>
-                </div>
-            ))}
-        </div>
+            <div className="products-grid">
+                {products?.map((product: any) => (
+                    <article className="product-card" key={product.id}>
+                        <img
+                            src={product.picture}
+                            alt={product.title}
+                            className="product-card__image"
+                        />
+                        <h2>{product.title}</h2>
+                        <p className="product-card__price">{product.price} kr</p>
+                    </article>
+                ))}
+            </div>
+        </main>
     );
 };
 

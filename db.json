@@ -1,11 +1,11 @@
 {
   "categories": [
-    { "id": 1, "name": "Food" },
-    { "id": 2, "name": "Toys" },
-    { "id": 3, "name": "Accessories" },
-    { "id": 4, "name": "Bedding" },
-    { "id": 5, "name": "Grooming" },
-    { "id": 6, "name": "Health" }
+    { "id": 1, "name": "Hund" },
+    { "id": 2, "name": "Katt" },
+    { "id": 3, "name": "Fåglar" },
+    { "id": 4, "name": "Fisk" },
+    { "id": 5, "name": "Gnagare" }
+  
   ],
   "products": [
     {

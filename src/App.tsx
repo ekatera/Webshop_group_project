@@ -1,32 +1,32 @@
 import './App.css';
-import Home from './components/Home';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Products from './components/Products';
 import Details from './components/Details';
 import Order from './components/Order';
 import Checkout from './components/Checkout';
-import Confirmation from "./components/Confirmation";
+import Confirmation from './components/Confirmation';
+import About from './components/About';
+
 const App = () => {
     return (
         <div>
             <Router>
                 <Header />
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Products />} />
                     <Route path="/products" element={<Products />} />
+                    <Route path="/about" element={<About />} />
                     <Route path="/products/detail/:id" element={<Details />} />
                     <Route path="/order" element={<Order />} />
-                    <Route path="products/detail/:id" element={<Details />} />
-                    <Route path="order" element={<Order />} />
-                    <Route path="checkout" element={<Checkout />} />
-                    <Route path="confirmation/:orderId" element={<Confirmation />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/confirmation/:orderId" element={<Confirmation />} />
                 </Routes>
                 <Footer />
             </Router>
         </div>
-    )
-}
+    );
+};
 
-export default App
+export default App;

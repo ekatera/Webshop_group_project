@@ -41,13 +41,15 @@ export const useUserStore = create ( (set)  => (
              
                 {
                     if ( state.order ) {
+                        const newOrder = {...state.order};
                         const found = state.order.orderItems.find( (item : any) => item.itemId === itemId );
                         if ( found ) {
                             found.quantity += 1;
                         } else {
                             state.order.orderItems.push({ itemId, quantity: 1 });
-                        } 
-                        return { order: state.order };
+                        }
+                        newOrder.orderItems = [...state.order.orderItems];
+                        return { order: newOrder };
                     } else { // create new order
                         const newOrder : OrderObj = {
                             orderId: Date.now(),

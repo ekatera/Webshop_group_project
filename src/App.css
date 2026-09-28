@@ -276,6 +276,17 @@
   font-weight: 700;
 }
 
+button.active, button.active:hover {
+  background-color: #F4A261;;
+  color: white;
+}
+
+.shopping-cart:hover {
+  filter: drop-shadow(0 0 15px rgba(144, 238, 144, 1));
+  transform: scale(1.15);
+  transition: all 0.2s ease;
+}
+
 .about-page {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;

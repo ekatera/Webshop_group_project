@@ -1,5 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import ProductFilter from './ProductFilter';
+import { ShoppingCart } from 'lucide-react';
+import { useUserStore } from './Store';
+import { useState } from 'react';
+
 
 type Product = {
     id: number;
@@ -13,7 +17,12 @@ type Product = {
     saldo: number;
 };
 
+
 const Products = () => {
+
+    const [filters, setFilter] = useState<string []>([]);
+    const [categories, setCategory] = useState<string[]>([]);
+    const addToCart = useUserStore( (state: any) => state.updateOrder );
 
     const { data: products, isLoading, isError } = useQuery<Product[]>({
         queryKey: ['products'],
@@ -31,15 +40,41 @@ const Products = () => {
     if (isLoading) {
         return <p>Loading products...</p>;
     }
+
     if (isError) {
     return <p>Something went wrong when loading the products.</p>;
     }
-    
+    const filteredProducts = filters.length > 0
+        ? products?.filter((product) =>
+            filters.some(filter => product.animal.includes(filter)) && 
+            (categories.length > 0 ? categories.some((category) => product.categories.includes(category)) : true)
+        )
+        : products;
     return (
         <main className="products-page">
             <h1>Products</h1>
 
-            <ProductFilter products={products ?? []} />
+            <ProductFilter filters = {filters} categories = {categories} setFilter = {setFilter} setCategory= {setCategory}/>
+            <div className="products-grid">
+                {filteredProducts?.map((product: any) => (
+                    <article className="product-card" key={product.id}>
+                        <img
+                            src={product.picture}
+                            alt={product.title}
+                            className="product-card__image"
+                        />
+                        <h2>{product.title}</h2>
+                        <p className="product-card__price">{product.price} kr 
+                            <ShoppingCart className="shopping-cart"
+                            onClick={() => 
+                            { 
+                                console.log('Add to cart', product.id);
+                                addToCart(product.id, 1);
+                            }} />
+                        </p>
+                    </article>
+                ))}
+            </div>
         </main>
     );
 };

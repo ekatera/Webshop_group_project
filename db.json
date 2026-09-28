@@ -223,7 +223,7 @@
       {
       "id": 20,
       "title": "Cooling mat",
-      "description": "Perfect for warm days when your pet wants to cool down",
+      "description": "Helps your pet stay cool during hot weather, suitable for both dogs and cats.",
       "price": 129,
       "animal": ["dog", "cat"],
       "categories": ["health", "accessories"],
@@ -240,17 +240,6 @@
       "categories": ["health", "accessories"],
       "onSale": false,
       "picture": "/images/cat-water-fountain.jpg",
-      "saldo": 25
-      },
-      {
-      "id": 22,
-      "title": "Vitamins for Dogs and Cats",
-      "description": "Nutritious vitamins for both dogs and cats.",
-      "price": 129,
-      "animal": ["dog", "cat"],
-      "categories": ["health"],
-      "onSale": false,
-      "picture": "/images/vitamins.jpg",
       "saldo": 25
       }
   ],

@@ -5,7 +5,7 @@ type Product = {
     title: string;
     description: string;
     price: number;
-    animal: string;
+    animal: string | string[];
     categories: string[];
     onSale: boolean;
     picture: string;
@@ -27,8 +27,10 @@ const ProductFilter = ({ products }: ProductFilterProps) => {
 
     const filteredProducts = products.filter((product) => {
         const animalMatch =
-            selectedAnimal === 'all' ||
-            product.animal === selectedAnimal;
+    selectedAnimal === 'all' ||
+    (Array.isArray(product.animal)
+        ? product.animal.includes(selectedAnimal)
+        : product.animal === selectedAnimal);
 
         const categoryMatch =
             selectedCategory === 'all' ||
@@ -56,14 +58,6 @@ const ProductFilter = ({ products }: ProductFilterProps) => {
 
                 <button onClick={() => handleAnimalChange('cat')}>
                     🐱 Cats
-                </button>
-
-                <button onClick={() => handleAnimalChange('bird')}>
-                   🐶  Puppies
-                </button>
-
-                <button onClick={() => handleAnimalChange('fish')}>
-                    🐱 Kittens
                 </button>
 
             </section>

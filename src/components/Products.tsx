@@ -6,7 +6,7 @@ type Product = {
     title: string;
     description: string;
     price: number;
-    animal: string;
+    animal: string | string[];
     categories: string[];
     onSale: boolean;
     picture: string;

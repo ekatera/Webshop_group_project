@@ -21,7 +21,9 @@ const Header = () => {
 
         <div className="header__actions">
           <button>Search</button>
-          <button onClick = { () => navigate("/order") }>Cart { order && order.orderItems.length > 0 ? `(${order.orderItems.length})` : '' }</button>
+          <button onClick = { () => navigate("/order") }>Cart { 
+              order && order.orderItems.length > 0 ? `(${order.orderItems.reduce((sum: number, item: any) => sum + item.quantity, 0)})` : '' 
+          }</button>
         </div>
       </div>
     </header>

@@ -14,7 +14,7 @@
       "description": "Complete dry food for adult dogs.",
       "price": 299,
       "animal": "dog",
-      "categories": ["food", "health"],
+      "categories": ["food"],
       "onSale": true,
       "picture": "/images/dry-food-dogs-10kg.jpg",
       "saldo": 45
@@ -47,7 +47,7 @@
       "description": "Simple, easy to clean bowl for food or water.",
       "price": 129,
       "animal": ["dog", "cat"],
-      "categories": ["accessories"],
+      "categories": ["accessories", "food"],
       "onSale": false,
       "picture": "/images/food-bowl.jpg",
       "saldo": 40
@@ -81,7 +81,7 @@
       "description": "Lightweight and comfortable shampoo for dogs and cats.",
       "price": 99,
       "animal": ["dog", "cat"],
-      "categories": ["accessories"],
+      "categories": ["accessories", "health"],
       "onSale": false,
       "picture": "/images/shampoo.jpg",
       "saldo": 28
@@ -133,10 +133,10 @@
 
     {
       "id": 12,
-      "title": "Premium Wet Cat Food",
+      "title": "Premium Cat Wet Food",
       "description": "Nutritious food mix for pet cats.",
       "price": 129,
-      "animal": ["cat", "dog"],
+      "animal": ["cat"],
       "categories": ["food"],
       "onSale": false,
       "picture": "/images/wet-food.jpg",
@@ -146,7 +146,7 @@
       "id": 13,
       "title": "Feather toy for Cats",
       "description": "Entertaining toy for cats.",
-      "price": 499,
+      "price": 129,
       "animal": "cat",
       "categories": ["toys"],
       "onSale": false,
@@ -159,7 +159,7 @@
       "description": "Durable scratching post for cats.",
       "price": 899,
       "animal": "cat",
-      "categories": ["accessories", "toys"],
+      "categories": ["accessories"],
       "onSale": true,
       "picture": "/images/cat-tree.jpg",
       "saldo": 7
@@ -189,7 +189,7 @@
     },
     {
       "id": 17,
-      "title": "Premium Wet Dog Food",
+      "title": "Premium Dog Wet Food",
       "description": "Nutritious food mix for pet dogs.",
       "price": 129,
       "animal": "dog",
@@ -237,7 +237,7 @@
       "description": "Water bowl, easy to use, for both dogs and cats.",
       "price": 129,
       "animal": ["dog", "cat"],
-      "categories": ["health", "accessories"],
+      "categories": ["accessories"],
       "onSale": false,
       "picture": "/images/cat-water-fountain.jpg",
       "saldo": 25

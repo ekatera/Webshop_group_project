@@ -43,10 +43,10 @@
     },
     {
       "id": 4,
-      "title": "Dog Bowl",
+      "title": "Bowl",
       "description": "Simple, easy to clean bowl for food or water.",
       "price": 129,
-      "animal": "dog",
+      "animal": ["dog", "cat"],
       "categories": ["accessories"],
       "onSale": false,
       "picture": "/images/food-bowl.jpg",
@@ -136,7 +136,7 @@
       "title": "Premium Wet Cat Food",
       "description": "Nutritious food mix for pet cats.",
       "price": 129,
-      "animal": "cat",
+      "animal": ["cat", "dog"],
       "categories": ["food"],
       "onSale": false,
       "picture": "/images/wet-food.jpg",
@@ -167,7 +167,7 @@
     {
       "id": 15,
       "title": "Chewing Toy for Dogs and Puppies",
-      "description": "Durable toy designed for dogs, made with rubber fabric.",
+      "description": "Durable toy designed for dogs, made with rubber.",
       "price": 79,
       "animal": "dog",
       "categories": ["toys"],
@@ -189,7 +189,7 @@
     },
     {
       "id": 17,
-      "title": "Premium Wet dog Food",
+      "title": "Premium Wet Dog Food",
       "description": "Nutritious food mix for pet dogs.",
       "price": 129,
       "animal": "dog",
@@ -199,7 +199,51 @@
       "saldo": 25
     },
     {
+      "id": 18,
+      "title": "Fur Care Brush for Dogs and Cats",
+      "description": "A brush designed for both dogs and cats to help keep their fur healthy and tangle-free.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["accessories"],
+      "onSale": false,
+      "picture": "/images/brush.jpg",
+      "saldo": 25
+      },
+    {
       "id": 19,
+      "title": "Vitamins for Dogs and Cats",
+      "description": "Nutritious vitamins for both dogs and cats.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["health"],
+      "onSale": false,
+      "picture": "/images/vitamins.jpg",
+      "saldo": 25
+      },
+      {
+      "id": 20,
+      "title": "Cooling mat",
+      "description": "Perfect for warm days when your pet wants to cool down",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["health", "accessories"],
+      "onSale": false,
+      "picture": "/images/cooling-mat.jpg",
+      "saldo": 25
+      },
+      {
+      "id": 21,
+      "title": "Interactive Water Fountain ",
+      "description": "Water bowl, easy to use, for both dogs and cats.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["health", "accessories"],
+      "onSale": false,
+      "picture": "/images/cat-water-fountain.jpg",
+      "saldo": 25
+      },
+      {
+      "id": 22,
       "title": "Vitamins for Dogs and Cats",
       "description": "Nutritious vitamins for both dogs and cats.",
       "price": 129,

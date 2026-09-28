@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-
+import { ShoppingCart } from 'lucide-react';
+import { useUserStore } from './Store';
 const Products = () => {
     const { data: products, error } = useQuery({
         queryKey: ['products'],
@@ -9,6 +10,8 @@ const Products = () => {
             return data;
         }
     });
+
+    const addToCart = useUserStore( (state: any) => state.updateOrder );
 
     if (error) {
         return <p>Something went wrong...</p>;
@@ -27,7 +30,14 @@ const Products = () => {
                             className="product-card__image"
                         />
                         <h2>{product.title}</h2>
-                        <p className="product-card__price">{product.price} kr</p>
+                        <p className="product-card__price">{product.price} kr 
+                            <ShoppingCart className="shopping-cart"
+                            onClick={() => 
+                            { 
+                                console.log('Add to cart', product.id);
+                                addToCart(product.id, 1);
+                            }} />
+                        </p>
                     </article>
                 ))}
             </div>

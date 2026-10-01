@@ -395,6 +395,9 @@ body {
   font-weight: 700;
 }
 
+button.active, button.active:hover {
+  background-color: #F4A261;
+  color: white;
 .products-page button {
   border: 1px solid #d9e2d8;
   background: #ffffff;

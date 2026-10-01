@@ -4,190 +4,245 @@
     { "id": 2, "name": "Toys" },
     { "id": 3, "name": "Accessories" },
     { "id": 4, "name": "Bedding" },
-    { "id": 5, "name": "Grooming" },
-    { "id": 6, "name": "Health" }
+    { "id": 5, "name": "Health" }
   ],
+
   "products": [
     {
       "id": 1,
       "title": "Premium Dog Dry Food 10kg",
+      "description": "Complete dry food for adult dogs.",
       "price": 299,
-      "category": ["Food", "Health"],
+      "animal": "dog",
+      "categories": ["food"],
       "onSale": true,
       "picture": "/images/dry-food-dogs-10kg.jpg",
       "saldo": 45
     },
     {
       "id": 2,
-      "title": "Scratching Post",
-      "price": 449,
-      "category": ["Accessories"],
+      "title": "Food Bowl",
+      "description": "Tricky Food Bowl for Dogs.",
+      "price": 199,
+      "animal": "dog",
+      "categories": ["accessories", "food"],
       "onSale": false,
+      "picture": "/images/puzzle-feeder.jpg",
+      "saldo": 30
+    },
+    {
+      "id": 3,
+      "title": "Classic Dog Leash",
+      "description": "Strong and comfortable leash for everyday walks.",
+      "price": 249,
+      "animal": "dog",
+      "categories": ["accessories"],
+      "onSale": false,
+      "picture": "/images/leash.jpg",
+      "saldo": 25
+    },
+    {
+      "id": 4,
+      "title": "Bowl",
+      "description": "Simple, easy to clean bowl for food or water.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["accessories", "food"],
+      "onSale": false,
+      "picture": "/images/food-bowl.jpg",
+      "saldo": 40
+    },
+    {
+      "id": 5,
+      "title": "Orthopedic Dog Bed",
+      "description": "Soft orthopedic bed designed for comfortable sleeping.",
+      "price": 499,
+      "animal": "dog",
+      "categories": ["bedding", "health"],
+      "onSale": true,
+      "picture": "/images/dog-bed.jpg",
+      "saldo": 18
+    },
+
+    {
+      "id": 6,
+      "title": "Premium Cat Dry Food 2kg",
+      "description": "Balanced dry food for adult cats.",
+      "price": 189,
+      "animal": "cat",
+      "categories": ["food"],
+      "onSale": true,
+      "picture": "/images/dry-food-cats-2kg.jpg",
+      "saldo": 35
+    },
+    {
+      "id": 7,
+      "title": "Shampoo for Dogs and Cats",
+      "description": "Lightweight and comfortable shampoo for dogs and cats.",
+      "price": 99,
+      "animal": ["dog", "cat"],
+      "categories": ["accessories", "health"],
+      "onSale": false,
+      "picture": "/images/shampoo.jpg",
+      "saldo": 28
+    },
+    {
+      "id": 8,
+      "title": "Hair remover for Dogs and Cats",
+      "description": "Remove hair easy and effectively.",
+      "price": 109,
+      "animal": ["dog", "cat"],
+      "categories": ["accessories"],
+      "onSale": false,
+      "picture": "/images/hair-remover.jpg",
+      "saldo": 32
+    },
+    {
+      "id": 9,
+      "title": "Cozy Cat Bed",
+      "description": "Soft and cozy bed for cats, Medium size.",
+      "price": 349,
+      "animal": "cat",
+      "categories": ["bedding"],
+      "onSale": false,
+      "picture": "/images/cat-bed.jpg",
+      "saldo": 20
+    },
+    {
+      "id": 10,
+      "title": "Cat Scratching Post",
+      "description": "Durable scratching post for cats.",
+      "price": 449,
+      "animal": "cat",
+      "categories": ["accessories"],
+      "onSale": true,
       "picture": "/images/scratch-post.jpg",
       "saldo": 12
     },
     {
-      "id": 3,
-      "title": "Squeaky Rubber Bone",
-      "price": 79,
-      "category": ["Toys"],
-      "onSale": true,
-      "picture": "/images/rubber-bone.jpg",
-      "saldo": 87
-    },
-    {
-      "id": 4,
-      "title": "Orthopedic Cat Bed",
-      "price": 399,
-      "category": ["Bedding", "Health"],
-      "onSale": false,
-      "picture": "/images/cat-bed.jpg",
-      "saldo": 23
-    },
-    {
-      "id": 5,
-      "title": "Grooming Brush",
-      "price": 129,
-      "category": ["Grooming", "Accessories"],
-      "onSale": false,
-      "picture": "/images/brush.jpg",
-      "saldo": 34
-    },
-    {
-      "id": 6,
-      "title": "Feather Wand Toy",
-      "price": 59,
-      "category": ["Toys"],
-      "onSale": true,
-      "picture": "/images/feather-toy.jpg",
-      "saldo": 102
-    },
-    {
-      "id": 7,
-      "title": "Leather Leash with Collar",
-      "price": 249,
-      "category": ["Accessories"],
-      "onSale": false,
-      "picture": "/images/leash.jpg",
-      "saldo": 19
-    },
-    {
-      "id": 8,
-      "title": "Grain-Free Wet Food 12-pack",
-      "price": 179,
-      "category": ["Food", "Health"],
-      "onSale": false,
-      "picture": "/images/wet-food.jpg",
-      "saldo": 56
-    },
-    {
-      "id": 9,
-      "title": "Flea & Tick Shampoo",
-      "price": 149,
-      "category": ["Grooming", "Health"],
-      "onSale": true,
-      "picture": "/images/shampoo.jpg",
-      "saldo": 41
-    },
-    {
-      "id": 10,
-      "title": "Ceramic Food Bowl",
-      "price": 89,
-      "category": ["Accessories"],
-      "onSale": false,
-      "picture": "/images/food-bowl.jpg",
-      "saldo": 67
-    },
-    {
       "id": 11,
-      "title": "Dental Chew Rope",
-      "price": 69,
-      "category": ["Toys", "Health"],
+      "title": "Cat Toy Mouse",
+      "description": "Small interactive toy designed for cats.",
+      "price": 59,
+      "animal": "cat",
+      "categories": ["toys"],
       "onSale": true,
-      "picture": "/images/chew-rope.jpg",
-      "saldo": 78
+      "picture": "/images/cat-toy-mouse.jpg",
+      "saldo": 50
     },
+
     {
       "id": 12,
-      "title": "Vitamin Supplements",
-      "price": 199,
-      "category": ["Health", "Food"],
+      "title": "Premium Cat Wet Food",
+      "description": "Nutritious food mix for pet cats.",
+      "price": 129,
+      "animal": ["cat"],
+      "categories": ["food"],
       "onSale": false,
-      "picture": "/images/vitamins.jpg",
-      "saldo": 30
+      "picture": "/images/wet-food.jpg",
+      "saldo": 25
     },
     {
       "id": 13,
-      "title": "Interactive Puzzle Feeder",
-      "price": 219,
-      "category": ["Toys", "Food"],
-      "onSale": true,
-      "picture": "/images/puzzle-feeder.jpg",
-      "saldo": 25
+      "title": "Feather toy for Cats",
+      "description": "Entertaining toy for cats.",
+      "price": 129,
+      "animal": "cat",
+      "categories": ["toys"],
+      "onSale": false,
+      "picture": "/images/feather-toy.jpg",
+      "saldo": 10
     },
     {
       "id": 14,
-      "title": "Cooling Mat",
-      "price": 179,
-      "category": ["Bedding", "Accessories"],
-      "onSale": false,
-      "picture": "/images/cooling-mat.jpg",
-      "saldo": 18
+      "title": "Cat Tree",
+      "description": "Durable scratching post for cats.",
+      "price": 899,
+      "animal": "cat",
+      "categories": ["accessories"],
+      "onSale": true,
+      "picture": "/images/cat-tree.jpg",
+      "saldo": 7
     },
     {
       "id": 15,
-      "title": "Cat Toy Mouse",
-      "price": 59,
-      "category": ["Toys"],
-      "onSale": true,
-      "picture": "/images/cat-toy-mouse.jpg",
-      "saldo": 102
+      "title": "Chewing Toy for Dogs and Puppies",
+      "description": "Durable toy designed for dogs, made with rubber.",
+      "price": 79,
+      "animal": "dog",
+      "categories": ["toys"],
+      "onSale": false,
+      "picture": "/images/rubber-bone.jpg",
+      "saldo": 20
     },
+
     {
       "id": 16,
-      "title": "Interactive Water Fountain",
-      "price": 219,
-      "category": ["Accessories", "Health"],
+      "title": "Chewing Toy for Dogs and Puppies",
+      "description": "Durable toy designed for dogs, made with fabric.",
+      "price": 89,
+      "animal": "dog",
+      "categories": ["toys"],
       "onSale": false,
-      "picture": "/images/cat-water-fountain.jpg",
-      "saldo": 25
+      "picture": "/images/chew-rope.jpg",
+      "saldo": 40
     },
     {
       "id": 17,
-      "title": "Orthopedic Dog Bed",
-      "price": 79,
-      "category": ["Bedding"],
+      "title": "Premium Dog Wet Food",
+      "description": "Nutritious food mix for pet dogs.",
+      "price": 129,
+      "animal": "dog",
+      "categories": ["food"],
       "onSale": false,
-      "picture": "/images/dog-bed.jpg",
-      "saldo": 87
+      "picture": "/images/wet-food.jpg",
+      "saldo": 25
     },
     {
       "id": 18,
-      "title": "Cozy Cat Tree",
-      "price": 149,
-      "category": ["Accessories", "Bedding"],
-      "onSale": true,
-      "picture": "/images/cat-tree.jpg",
-      "saldo": 41
-    },
+      "title": "Fur Care Brush for Dogs and Cats",
+      "description": "A brush designed for both dogs and cats to help keep their fur healthy and tangle-free.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["accessories"],
+      "onSale": false,
+      "picture": "/images/brush.jpg",
+      "saldo": 25
+      },
     {
       "id": 19,
-      "title": "Pet Hair Remover Roller",
-      "price": 69,
-      "category": ["Grooming", "Accessories"],
+      "title": "Vitamins for Dogs and Cats",
+      "description": "Nutritious vitamins for both dogs and cats.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["health"],
       "onSale": false,
-      "picture": "/images/hair-remover.jpg",
-      "saldo": 78
-    },
-    {
+      "picture": "/images/vitamins.jpg",
+      "saldo": 25
+      },
+      {
       "id": 20,
-      "title": "Premium Cat Dry Food 2kg",
-      "price": 89,
-      "category": ["Food"],
-      "onSale": true,
-      "picture": "/images/dry-food-cats-2kg.jpg",
-      "saldo": 67
-    }
+      "title": "Cooling mat",
+      "description": "Helps your pet stay cool during hot weather, suitable for both dogs and cats.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["health", "accessories"],
+      "onSale": false,
+      "picture": "/images/cooling-mat.jpg",
+      "saldo": 25
+      },
+      {
+      "id": 21,
+      "title": "Interactive Water Fountain ",
+      "description": "Water bowl, easy to use, for both dogs and cats.",
+      "price": 129,
+      "animal": ["dog", "cat"],
+      "categories": ["accessories"],
+      "onSale": false,
+      "picture": "/images/cat-water-fountain.jpg",
+      "saldo": 25
+      }
   ],
+
   "orders": []
 }

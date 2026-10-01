@@ -70,7 +70,7 @@ const Order = () => {
 
             </div>
         ) :
-        (<div>No order found</div>)
+        (<div className="order-empty">No order found</div>)
     );
 };
 

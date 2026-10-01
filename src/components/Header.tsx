@@ -9,9 +9,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <a href="/" className="header__logo">
-          Webshop
-        </a>
+        <Link to="/" className="header__logo">
+          Pet Paws
+        </Link>
 
         <nav className="header__nav">
           <Link to="/">Home</Link>

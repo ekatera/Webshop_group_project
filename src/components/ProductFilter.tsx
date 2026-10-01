@@ -38,23 +38,58 @@ const ProductFilter = ({ filters, setFilter, categories, setCategory }: ProductF
                         All
                     </button>
 
-                    <button className={categories.includes('food') ? 'active' : ''} onClick={() => setCategory(['food'])}>
+                    <button className={categories.includes('food') ? 'active' : ''} onClick={() => 
+                        {
+                            if (categories.includes('food')) {
+                                 setCategory(categories.filter(category => category !== 'food'));
+                        }   else {    
+                                 setCategory([...categories, 'food'])
+                        }
+                        }}>
                         Food
                     </button>
 
-                    <button className={categories.includes('accessories') ? 'active' : ''} onClick={() => setCategory(['accessories'])}>
+                    <button className={categories.includes('accessories') ? 'active' : ''} onClick={() => 
+                        {
+                            if (categories.includes('accessories')) {
+                                 setCategory(categories.filter(category => category !== 'accessories'));
+                        }   else {    
+                                 setCategory([...categories, 'accessories'])
+                        }
+                        }}>
                         Accessories
                     </button>
 
-                    <button className={categories.includes('bedding') ? 'active' : ''} onClick={() => setCategory(['bedding'])}>
-                        Bedding
+                    <button className={categories.includes('bedding') ? 'active' : ''} onClick={() => 
+                        {
+                            if (categories.includes('bedding')) {
+                                 setCategory(categories.filter(category => category !== 'bedding'));
+                        }   else {    
+                                 setCategory([...categories, 'bedding'])
+                        }
+                        }}>
+                            Bedding
                     </button>
 
-                    <button className={categories.includes('toys') ? 'active' : ''} onClick={() => setCategory(['toys'])}>
-                        Toys
+                    <button className={categories.includes('toys') ? 'active' : ''} onClick={() => 
+                        {
+                            if (categories.includes('toys')) {
+                                 setCategory(categories.filter(category => category !== 'toys'));
+                        }   else {    
+                                 setCategory([...categories, 'toys'])
+                        }
+                        }}>
+                            Toys
                     </button>
 
-                    <button className = {categories.includes('health') ? 'active' : ''} onClick={() => setCategory(['health'])}>
+                    <button className = {categories.includes('health') ? 'active' : ''} onClick={() => 
+                        {
+                            if (categories.includes('health')) {
+                                 setCategory(categories.filter(category => category !== 'health'));
+                        }   else {    
+                                 setCategory([...categories, 'health'])
+                        }
+                        }}>
                         Health
                     </button>
                 </section>)}

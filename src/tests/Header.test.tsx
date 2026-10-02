@@ -4,6 +4,7 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import type { OrderObj } from "../components/OrderObj";
 import { useUserStore } from "../components/Store";
+import { useQuery } from '@tanstack/react-query';
 import { MemoryRouter } from 'react-router-dom';
 
 const mockUseNavigate = vi.fn();
@@ -20,6 +21,7 @@ afterEach(() => {
   cleanup();
 });
 
+vi.mock('@tanstack/react-query');
 describe("Header", () => {
   it("show right amount of products in cart", async () => {
     const order: OrderObj = {
@@ -37,7 +39,13 @@ describe("Header", () => {
     };
     
     useUserStore.setState({ order: order });
-
+        vi.mocked(useQuery).mockReturnValue({
+        data: [
+          { id: 1, title: 'Product 1', price: 10, category: 'Category 1', onSale: true, picture: 'picture_url', saldo: 1 },
+        ],
+        isLoading: false,
+        error: null,
+    } as any );
     render(
         <MemoryRouter>
             <Header />

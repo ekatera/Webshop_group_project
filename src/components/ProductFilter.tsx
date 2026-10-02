@@ -1,135 +1,64 @@
-import { useState } from 'react';
-
-type Product = {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    animal: string | string[];
-    categories: string[];
-    onSale: boolean;
-    picture: string;
-    saldo: number;
-};
-
 type ProductFilterProps = {
-    products: Product[];
+    filters: string[];
+    setFilter: (filters: string[]) => void;
+    categories: string[];
+    setCategory: (category: string[]) => void;
 };
 
-const ProductFilter = ({ products }: ProductFilterProps) => {
-    const [selectedAnimal, setSelectedAnimal] = useState('all');
-    const [selectedCategory, setSelectedCategory] = useState('all');
-
-    const handleAnimalChange = (animal: string) => {
-        setSelectedAnimal(animal);
-        setSelectedCategory('all');
-    };
-
-    const filteredProducts = products.filter((product) => {
-        const animalMatch =
-    selectedAnimal === 'all' ||
-    (Array.isArray(product.animal)
-        ? product.animal.includes(selectedAnimal)
-        : product.animal === selectedAnimal);
-
-        const categoryMatch =
-            selectedCategory === 'all' ||
-            product.categories.includes(selectedCategory);
-
-        return animalMatch && categoryMatch;
-    });
-
+const ProductFilter = ({ filters, setFilter, categories, setCategory }: ProductFilterProps) =>  {
     return (
         <main>
             <h1>Welcome to Petpaws 🐾</h1>
 
             <p>Everything your pet needs in one place.</p>
 
-            <section>
+            <section className="product-filter">
                 <h2>Choose your pet</h2>
 
-                <button onClick={() => handleAnimalChange('all')}>
+                <button className={filters.length === 0 ? 'active' : ''} onClick={() => { setFilter([]); }}>
                     All pets
                 </button>
 
-                <button onClick={() => handleAnimalChange('dog')}>
+                <button className={filters.includes('dog') ? 'active' : ''} onClick={() => setFilter(['dog'])}>
                     🐶 Dogs
                 </button>
 
-                <button onClick={() => handleAnimalChange('cat')}>
+                <button className={filters.includes('cat') ? 'active' : ''} onClick={() => setFilter(['cat'])}>
                     🐱 Cats
                 </button>
 
             </section>
-
-            {selectedAnimal !== 'all' && (
-                <section>
+                
+                {  filters.length > 0 && (
+               
+                <section className="product-filter product-filter--categories">
                     <h2>Categories</h2>
 
-                    <button onClick={() => setSelectedCategory('all')}>
+                    <button className={categories.length === 0 ? 'active' : ''} onClick={() => setCategory([])}>
                         All
                     </button>
 
-                    <button onClick={() => setSelectedCategory('food')}>
+                    <button className={categories.includes('food') ? 'active' : ''} onClick={() => setCategory(['food'])}>
                         Food
                     </button>
 
-                    <button onClick={() => setSelectedCategory('accessories')}>
+                    <button className={categories.includes('accessories') ? 'active' : ''} onClick={() => setCategory(['accessories'])}>
                         Accessories
                     </button>
 
-                    <button onClick={() => setSelectedCategory('bedding')}>
+                    <button className={categories.includes('bedding') ? 'active' : ''} onClick={() => setCategory(['bedding'])}>
                         Bedding
                     </button>
 
-                    <button onClick={() => setSelectedCategory('toys')}>
+                    <button className={categories.includes('toys') ? 'active' : ''} onClick={() => setCategory(['toys'])}>
                         Toys
                     </button>
 
-                    <button onClick={() => setSelectedCategory('health')}>
+                    <button className = {categories.includes('health') ? 'active' : ''} onClick={() => setCategory(['health'])}>
                         Health
                     </button>
-                </section>
-            )}
-
-            <section>
-                <h2>Products</h2>
-
-                <div className="products-grid">
-                    {filteredProducts.map((product) => (
-                        <article
-                            className="product-card"
-                            key={product.id}
-                        >
-                            <img
-                                src={product.picture}
-                                alt={product.title}
-                                className="product-card__image"
-                            />
-
-                            <h3>{product.title}</h3>
-
-                            <p>{product.description}</p>
-
-                            <p className="product-card__price">
-                                {product.price} kr
-                            </p>
-
-                            {product.onSale && (
-                                <strong>SALE</strong>
-                            )}
-
-                            {product.saldo === 0 && (
-                                <p>Out of stock</p>
-                            )}
-
-                            <button disabled={product.saldo === 0}>
-                                Add to cart
-                            </button>
-                        </article>
-                    ))}
-                </div>
-            </section>
+                </section>)}
+            
         </main>
     );
 };

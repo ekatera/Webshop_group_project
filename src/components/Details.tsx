@@ -19,6 +19,7 @@ const Details = () => {
 
   const addToCart = useUserStore((state: any) => state.updateOrder);
   const order = useUserStore((state: any) => state.order);
+  
 
   const {
     data: product,
@@ -51,6 +52,7 @@ const Details = () => {
 
 const quantityInCart = cartItem?.quantity ?? 0;
 const canAddToCart = quantityInCart < product.saldo;
+const remainingStock = product.saldo - quantityInCart;
 
 return (
   <main className="details-page">
@@ -77,7 +79,7 @@ return (
         </p>
 
         <p className="details-stock">
-          {product.saldo > 0 ? `${product.saldo} in stock` : 'Out of stock'}
+          {remainingStock > 0 ? `${  remainingStock  } in stock` : 'Out of stock'}
         </p>
 
         <button

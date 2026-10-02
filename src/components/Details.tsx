@@ -86,7 +86,7 @@ return (
             className="details-add-button"
             onClick={() => {
                 if (canAddToCart) {
-                addToCart(product.id, 1);
+                addToCart(product.id, product.saldo);
                 }
             }}
             disabled={!canAddToCart}

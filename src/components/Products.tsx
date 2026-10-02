@@ -45,13 +45,20 @@ const Products = () => {
     if (isError) {
     return <p>Something went wrong when loading the products.</p>;
     }
-    const filteredProducts = filters.length > 0
-        ? products?.filter((product) =>
-            filters.some(filter => product.animal.includes(filter)) && 
-            (categories.length > 0 ? categories.some((category) => product.categories.includes(category)) : true)
-        )
-        : products;
-    return (
+    
+    const filteredProducts = products?.filter((product) => {
+    const matchesAnimal =
+      filters.length === 0 ||
+      filters.some((filter) => product.animal.includes(filter));
+
+    const matchesCategory =
+      categories.length === 0 ||
+      categories.some((category) => product.categories.includes(category));
+   
+      return matchesAnimal && matchesCategory;
+    });
+   
+      return (
   <main className="products-page">
     <h1>Products</h1>
 

@@ -28,8 +28,6 @@ const ProductFilter = ({ filters, setFilter, categories, setCategory }: ProductF
                 </button>
 
             </section>
-                
-                {  filters.length > 0 && (
                
                 <section className="product-filter product-filter--categories">
                     <h2>Categories</h2>
@@ -57,7 +55,7 @@ const ProductFilter = ({ filters, setFilter, categories, setCategory }: ProductF
                     <button className = {categories.includes('health') ? 'active' : ''} onClick={() => setCategory(['health'])}>
                         Health
                     </button>
-                </section>)}
+                </section>
             
         </main>
     );

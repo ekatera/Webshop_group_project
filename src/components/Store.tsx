@@ -37,17 +37,19 @@ export const useUserStore = create ( (set)  => (
             shippingData: null
         }),
 
-        updateOrder: ( itemId : number ) => set( (state : any) => 
+        updateOrder: ( itemId : number, saldo: number ) => set( (state : any) => 
              
                 {
-                    if ( state.order ) {
+                        if ( state.order ) {
                         const newOrder = {...state.order};
                         const found = state.order.orderItems.find( (item : any) => item.itemId === itemId );
                         if ( found ) {
+                        if (found.quantity < saldo) {
                             found.quantity += 1;
-                        } else {
-                            state.order.orderItems.push({ itemId, quantity: 1 });
                         }
+                    } else {
+                        state.order.orderItems.push({ itemId, quantity: 1 });
+                    }
                         newOrder.orderItems = [...state.order.orderItems];
                         return { order: newOrder };
                     } else { // create new order

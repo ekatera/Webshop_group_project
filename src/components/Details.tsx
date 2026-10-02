@@ -83,15 +83,15 @@ return (
         </p>
 
         <button
-            className="details-add-button"
-            onClick={() => {
-                if (canAddToCart) {
-                addToCart(product.id, product.saldo);
-                }
-            }}
-            disabled={!canAddToCart}
-            >
-            {canAddToCart ? 'Add to cart' : 'Out of stock'}
+          className="details-add-button"
+          onClick={() => {
+            if (canAddToCart) {
+              addToCart(product.id, product.saldo);
+            }
+          }}
+          disabled={!canAddToCart}
+        >
+          {canAddToCart ? 'Add to cart' : 'Out of stock'}
         </button>
       </div>
     </div>

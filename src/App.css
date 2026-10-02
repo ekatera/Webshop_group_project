@@ -709,6 +709,8 @@ body {
 .payment-select:focus {
   border-color: #315c43;
   box-shadow: 0 0 0 3px rgba(49, 92, 67, 0.12);
+}
+
 .details-page {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;

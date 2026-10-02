@@ -12,7 +12,7 @@ const ProductFilter = ({ filters, setFilter, categories, setCategory }: ProductF
 
             <p>Everything your pet needs in one place.</p>
 
-            <section>
+            <section className="product-filter">
                 <h2>Choose your pet</h2>
 
                 <button className={filters.length === 0 ? 'active' : ''} onClick={() => { setFilter([]); }}>
@@ -31,7 +31,7 @@ const ProductFilter = ({ filters, setFilter, categories, setCategory }: ProductF
                 
                 {  filters.length > 0 && (
                
-                <section>
+                <section className="product-filter product-filter--categories">
                     <h2>Categories</h2>
 
                     <button className={categories.length === 0 ? 'active' : ''} onClick={() => setCategory([])}>

@@ -15,7 +15,6 @@ const Header = () => {
 
         <nav className="header__nav">
           <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
           <Link to="/about">About us</Link>
         </nav>
 

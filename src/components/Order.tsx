@@ -54,7 +54,10 @@ const Order = () => {
 
                 <label>
                     Payment Method:
-                    <select onChange={(e) => setPayment(e.target.value)}>
+                    <select
+                        className="payment-select"
+                        onChange={(e) => setPayment(e.target.value)}
+                    >
                         <option value="creditCard">Card</option>
                         <option value="swish">Swish</option>
                         <option value="invoice">Invoice</option>

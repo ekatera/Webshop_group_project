@@ -18,6 +18,7 @@ const Details = () => {
   const { id } = useParams();
 
   const addToCart = useUserStore((state: any) => state.updateOrder);
+  const order = useUserStore((state: any) => state.order);
 
   const {
     data: product,
@@ -43,6 +44,13 @@ const Details = () => {
   if (isError || !product) {
     return <p>Something went wrong when loading the product.</p>;
   }
+
+  const cartItem = order?.orderItems.find(
+  (item: any) => item.itemId === product.id
+);
+
+const quantityInCart = cartItem?.quantity ?? 0;
+const canAddToCart = quantityInCart < product.saldo;
 
 return (
   <main className="details-page">
@@ -73,10 +81,15 @@ return (
         </p>
 
         <button
-          className="details-add-button"
-          onClick={() => addToCart(product.id, 1)}
-        >
-          Add to cart
+            className="details-add-button"
+            onClick={() => {
+                if (canAddToCart) {
+                addToCart(product.id, 1);
+                }
+            }}
+            disabled={!canAddToCart}
+            >
+            {canAddToCart ? 'Add to cart' : 'Out of stock'}
         </button>
       </div>
     </div>

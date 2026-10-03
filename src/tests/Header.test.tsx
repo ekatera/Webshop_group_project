@@ -20,6 +20,8 @@ afterEach(() => {
   cleanup();
 });
 
+vi.mock('@tanstack/react-query');
+
 describe("Header", () => {
   it("show right amount of products in cart", async () => {
     const order: OrderObj = {

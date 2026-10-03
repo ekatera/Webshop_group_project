@@ -18,6 +18,7 @@ type Product = {
 const Search = () => {
   const addToCart = useUserStore((state: any) => state.updateOrder);
   const searchResults = useUserStore((state: any) => state.searchResults) || [];
+  const order = useUserStore((state: any) => state.order);
 
   const {
     data: products,
@@ -67,7 +68,7 @@ const Search = () => {
               <img
                 src={product.picture}
                 alt={product.title}
-                className="product-card__image"
+                className={`product-card__image ${product.saldo === 0 || product.saldo - (order?.orderItems.find((item: any) => item.itemId === Number(product.id))?.quantity ?? 0) <= 0 ? 'out-of-stock' : ''}`}
               />
               <h2>{product.title}</h2>
             </Link>
@@ -75,9 +76,9 @@ const Search = () => {
             <p className="product-card__price">
               {product.price} kr
               <ShoppingCart
-                className="shopping-cart"
+                className={`shopping-cart ${product.saldo === 0 || product.saldo - (order?.orderItems.find((item: any) => item.itemId === Number(product.id))?.quantity ?? 0) <= 0 ? 'out-of-stock' : ''}`}
                 onClick={() => {
-                  addToCart(product.id, product.saldo);
+                  addToCart(Number(product.id), product.saldo);
                 }}
               />
             </p>

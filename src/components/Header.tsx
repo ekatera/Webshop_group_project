@@ -22,11 +22,11 @@ const Header = () => {
   });
 
   if (isLoading) {
-    return <p>Loading products...</p>;
+    console.log("Loading products...");
   }
 
   if (isError) {
-    return <p>Something went wrong when loading the products.</p>;
+    console.log("Something went wrong when loading the products.");
   }
 
   const handleSearch = () => {

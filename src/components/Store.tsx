@@ -104,7 +104,7 @@ export const useUserStore = create ( (set)  => (
             }
            }  
         ),
-        getSearchResults: (results: string[]) => set(( ) => 
+        getSearchResults: (results: number[]) => set(( ) => 
             ({
                 searchResults: results
             })

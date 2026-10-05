@@ -905,6 +905,11 @@ body {
   object-fit: contain;
 }
 
+.details-image.out-of-stock {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
 .details-info {
   max-width: 500px;
 }

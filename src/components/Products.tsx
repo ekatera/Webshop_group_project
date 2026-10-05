@@ -21,6 +21,7 @@ const Products = () => {
   const [filters, setFilter] = useState<string[]>([]);
   const [categories, setCategory] = useState<string[]>([]);
   const addToCart = useUserStore((state: any) => state.updateOrder);
+  const order = useUserStore((state: any) => state.order);
 
   const {
     data: products,
@@ -120,7 +121,8 @@ const Products = () => {
               <img
                 src={product.picture}
                 alt={product.title}
-                className="product-card__image"
+                className={`product-card__image 
+                    ${product.saldo === 0 || product.saldo - (order?.orderItems.find((item: any) => item.itemId === Number(product.id))?.quantity ?? 0) <= 0 ? 'out-of-stock' : ''}`}
               />
               <h2>{product.title}</h2>
             </Link>
@@ -128,9 +130,9 @@ const Products = () => {
             <p className="product-card__price">
               {product.price} kr
               <ShoppingCart
-                className="shopping-cart"
+                className={`shopping-cart ${product.saldo === 0 || product.saldo - (order?.orderItems.find((item: any) => item.itemId === Number(product.id))?.quantity ?? 0) <= 0 ? 'out-of-stock' : ''}`}
                 onClick={() => {
-                  addToCart(product.id, product.saldo);
+                  addToCart(Number(product.id), product.saldo);
                 }}
               />
             </p>

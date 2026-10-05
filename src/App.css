@@ -638,6 +638,11 @@ body {
   transition: transform 0.3s ease;
 }
 
+.product-card__image.out-of-stock {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
 .product-card:hover .product-card__image {
   transform: scale(1.02);
 }
@@ -685,6 +690,13 @@ body {
     background 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease;
+}
+
+.shopping-cart.out-of-stock {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  pointer-events: none;
+
 }
 
 .shopping-cart:hover {
@@ -891,6 +903,11 @@ body {
   height: 430px;
   display: block;
   object-fit: contain;
+}
+
+.details-image.out-of-stock {
+  filter: grayscale(100%);
+  opacity: 0.5;
 }
 
 .details-info {

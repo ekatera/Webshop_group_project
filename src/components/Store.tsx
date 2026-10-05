@@ -21,6 +21,7 @@ export const useUserStore = create ( (set)  => (
         OrderItems: [] as OrderItems,
         customerData: null as CustomerData | null,
         shippingData: null as ShippingData | null,
+        searchResults: [] as any[],
 
         setCustomerData: (customerData: CustomerData) => set({
             customerData
@@ -102,6 +103,11 @@ export const useUserStore = create ( (set)  => (
                 return { order: newOrder };
             }
            }  
+        ),
+        getSearchResults: (results: number[]) => set(( ) => 
+            ({
+                searchResults: results
+            })
         )
     }
 ));

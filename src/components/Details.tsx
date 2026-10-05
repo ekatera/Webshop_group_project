@@ -47,7 +47,7 @@ const Details = () => {
   }
 
   const cartItem = order?.orderItems.find(
-  (item: any) => item.itemId === product.id
+  (item: any) => item.itemId === Number(product.id)
 );
 
 const quantityInCart = cartItem?.quantity ?? 0;
@@ -61,7 +61,7 @@ return (
         <img
           src={product.picture}
           alt={product.title}
-          className="details-image"
+          className={`details-image ${product.saldo === 0 || product.saldo - (order?.orderItems.find((item: any) => item.itemId === Number(product.id))?.quantity ?? 0) <= 0 ? 'out-of-stock' : ''}`}
         />
       </div>
 
@@ -86,7 +86,7 @@ return (
           className="details-add-button"
           onClick={() => {
             if (canAddToCart) {
-              addToCart(product.id, product.saldo);
+              addToCart(Number(product.id), product.saldo);
             }
           }}
           disabled={!canAddToCart}

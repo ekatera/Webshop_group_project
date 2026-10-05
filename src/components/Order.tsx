@@ -22,6 +22,7 @@ const Order = () => {
     const setPayment = useUserStore(( state: any ) => state.setPaymentMethod);
     const updateQuantity = useUserStore(( state : any ) => state.updateQuantity);
     const updatePrice = useUserStore( ( state : any ) => state.updateOrderPrice );
+    const clearOrder = useUserStore((state: any) => state.clearOrder);
 
     const totalPrice = order?.orderItems.reduce(
         ( sum :number, item:any ) =>
@@ -37,9 +38,6 @@ const Order = () => {
     return (
         order ? (
             <div className="order-container">
-
-                <h2>Order Details:</h2>
-
                 <h1>Order ID: {order?.orderId}</h1>
                 <p>Order date: {order?.date.toLocaleDateString()}</p>
                 <p>Customer: Erik Eriksson</p>
@@ -51,6 +49,14 @@ const Order = () => {
                     products={products ?? []}
                     updateQuantity={updateQuantity}
                 />
+            <div className="order-actions">    
+                <button
+                    type="button"
+                    className="clear-cart-button"
+                    onClick={clearOrder}
+                    >
+                    Clear cart
+                    </button>
 
                 <label>
                     Payment Method:
@@ -70,7 +76,7 @@ const Order = () => {
                 }}>
                     Confirm order
                 </button>
-
+             </div>               
             </div>
         ) :
         (<div className="order-empty">No order found</div>)

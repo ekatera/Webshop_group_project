@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Products from './components/Products';
+import Search from './components/Search';
 import Details from './components/Details';
 import Order from './components/Order';
 import Checkout from './components/Checkout';
@@ -13,12 +14,13 @@ const App = () => {
     return (
         <div>
             <Router>
-                <Header />
+                <Header/>
                 <Routes>
                     <Route path="/" element={<Products />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/products/detail/:id" element={<Details />} />
+                    <Route path="/search" element={<Search />} />
                     <Route path="/order" element={<Order />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/confirmation/:orderId" element={<Confirmation />} />

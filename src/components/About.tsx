@@ -24,14 +24,16 @@ const About = () => {
 
             <section className="about-story">
                 <p className="about__eyebrow">Our story</p>
-                <h2>Made for pets and the people who love them</h2>
+                <h2>Created by pet lovers, for pet lovers</h2>
                 <p>
-                    Our webshop was created with a simple idea: pet owners should
-                    be able to find everything they need in one place.
+                    Pet Paws started from something simple: we love animals and
+                    know how much they mean to us. Our pets are part of the family,
+                    and we want to give them the best everyday life possible.
                 </p>
                 <p>
-                    From food and everyday essentials to toys and accessories,
-                    our goal is to make shopping for your pet simple and enjoyable.
+                    That is why we created Pet Paws – to make it easier for pet
+                    owners to find food, toys, accessories and everyday essentials
+                    for the animals they love.
                 </p>
             </section>
 

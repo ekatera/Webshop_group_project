@@ -30,7 +30,11 @@ const Header = () => {
   }
 
   const handleSearch = () => {
-    const searchResults = products.filter(( product: any ) => product.title.toLowerCase().includes(search.toLowerCase()));
+    const searchResults = products.filter(( product: any ) => 
+      { 
+        return product.title.toLowerCase().includes(search.toLowerCase()) || product.description.toLowerCase().includes(search.toLowerCase()) 
+        || product.categories.some((category: string) => category.toLowerCase().includes(search.toLowerCase()));
+      });
     setSearchResults(searchResults.map((product: any) => product.id));
     if (search.length > 0)
       navigate("/search");

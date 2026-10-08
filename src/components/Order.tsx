@@ -10,7 +10,6 @@ const Order = () => {
         queryFn: async() => {
             const response = await fetch('http://localhost:3000/products');
             const data = await response.json();
-            console.log(data);
             return data;
         }
     } );
@@ -34,7 +33,7 @@ const Order = () => {
             ),
         0
     );
-    console.log('Current order status:', order);
+
     return (
         order ? (
             <div className="order-container">

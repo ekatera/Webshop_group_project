@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import type { OrderObj, OrderItems } from './OrderObj';
-import mockOrder from './mockOrder';
 
 type CustomerData = {
     firstName: string;
@@ -17,7 +16,7 @@ type ShippingData = {
 
 export const useUserStore = create ( (set)  => (
     {
-        order: mockOrder as OrderObj | null,
+        order: null as OrderObj | null,
         OrderItems: [] as OrderItems,
         customerData: null as CustomerData | null,
         shippingData: null as ShippingData | null,
@@ -74,7 +73,6 @@ export const useUserStore = create ( (set)  => (
         setPaymentMethod: (method: string) => set(( state : any ) => 
         {
             const newOrder = {...state.order, paymentMethod: method };
-            console.log(newOrder.paymentMethod);
             return { order: newOrder };
         }), // end setPaymentMethod
 
@@ -89,7 +87,6 @@ export const useUserStore = create ( (set)  => (
                   item.itemId === itemId ? {...item, quantity } : item
                 )
                 const newOrder = {...state.order, orderItems: newOrderItems };
-                console.log(state.order);
                 return { order: newOrder };
             } else {
                 const newOrderItems = state.order.orderItems.filter( ( item : any )  =>
@@ -99,7 +96,6 @@ export const useUserStore = create ( (set)  => (
                     return { order: null };
                 } 
                 const newOrder = {...state.order, orderItems: newOrderItems };
-                console.log(state.order);
                 return { order: newOrder };
             }
            }  

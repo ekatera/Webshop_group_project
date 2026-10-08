@@ -53,7 +53,7 @@ const Search = () => {
       <div className="products-results">
         <div>
           <span className="products-results__eyebrow">SHOP</span>
-          <h2>Found products</h2>
+          <h2>{ foundProducts && foundProducts?.length > 0 ? `Found ${foundProducts.length} products` : 'No products found'}</h2>
         </div>
 
       </div>
